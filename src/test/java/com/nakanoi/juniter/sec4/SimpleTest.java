@@ -2,12 +2,10 @@ package com.nakanoi.juniter.sec4;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
