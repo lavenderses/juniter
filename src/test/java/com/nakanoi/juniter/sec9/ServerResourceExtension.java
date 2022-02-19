@@ -1,5 +1,7 @@
 package com.nakanoi.juniter.sec9;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -17,6 +19,7 @@ public class ServerResourceExtension implements BeforeAllCallback, AfterAllCallb
   @Override
   public void afterAll(ExtensionContext context) throws Exception {
     server.shutdown();
+    assertFalse(server.getStatus());
   }
 
   /**
