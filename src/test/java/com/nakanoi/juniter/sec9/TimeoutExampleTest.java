@@ -1,6 +1,8 @@
 package com.nakanoi.juniter.sec9;
 
-import org.junit.jupiter.api.Disabled;
+import static org.junit.jupiter.api.Assertions.assertTimeout;
+
+import java.time.Duration;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
@@ -12,9 +14,24 @@ public class TimeoutExampleTest {
    * @throws Exception Throw timeout.
    */
   @Test
-  @Timeout(1)
-  @Disabled
-  void testMayTakeALotOfTime() throws Exception {
-    Thread.sleep(2000);
+  @Timeout(2)
+  void testTimeoutWIthAnnotation() throws Exception {
+    Thread.sleep(1000);
+  }
+
+  /**
+   * Test timeout with assertion.
+   *
+   * @throws Exception Throw timeout.
+   */
+  @Test
+  void testTimeoutWithAssertion() throws Exception {
+    Duration timeout = Duration.ofSeconds(2000);
+
+    assertTimeout(timeout, this::sleep);
+  }
+
+  void sleep() throws Exception {
+    Thread.sleep(1000);
   }
 }
