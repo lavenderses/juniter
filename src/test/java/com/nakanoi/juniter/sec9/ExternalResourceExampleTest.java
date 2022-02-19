@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
 /** Test Server Resource implemented ExternalResource. */
-public class ExternalResourceTest {
+public class ExternalResourceExampleTest {
   @RegisterExtension
-  static ServerResourceExtension serverResource = ServerResourceExtension.builder().build();
+  static ExternalResourceExampleExtension serverResource = ExternalResourceExampleExtension.builder().build();
 
   /** Test server returns string which is equal to the request path. */
   @Test

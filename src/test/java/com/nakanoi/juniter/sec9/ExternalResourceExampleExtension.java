@@ -7,7 +7,7 @@ import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
 /** Test external resources. */
-public class ServerResourceExtension implements BeforeAllCallback, AfterAllCallback {
+public class ExternalResourceExampleExtension implements BeforeAllCallback, AfterAllCallback {
   Server server;
 
   @Override
@@ -43,8 +43,8 @@ public class ServerResourceExtension implements BeforeAllCallback, AfterAllCallb
 
   /** ServerResourceExtension builder. This comes from same as builder method. */
   public static class Builder {
-    public ServerResourceExtension build() {
-      return new ServerResourceExtension();
+    public ExternalResourceExampleExtension build() {
+      return new ExternalResourceExampleExtension();
     }
   }
 }
