@@ -7,7 +7,7 @@ public class Randoms {
   RandomNumberGenerator generator = new RandomNumberGeneratorImplementation();
 
   /**
-   *  Choice random element from given options.
+   * Choice random element from given options.
    *
    * @param options List which has elements to select.
    * @param <T> Class of list element.

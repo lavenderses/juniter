@@ -21,6 +21,7 @@ dependencies {
     testImplementation 'org.assertj:assertj-core:3.22.0'
     testImplementation 'org.hamcrest:hamcrest:2.2'
     testImplementation 'org.yaml:snakeyaml:1.30'
+    testImplementation 'org.mockito:mockito-core:4.3.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.11.0'
