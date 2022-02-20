@@ -7,11 +7,16 @@ public class DateDependencyExample {
   Date date = new Date();
   DateFactory factory = new DateFactoryImplementation();
 
+  /**
+   * Return date.
+   *
+   * @param type Method type to execute.
+   */
   public void doSomething(MethodType type) {
     switch (type) {
-      case SIMPLE -> date = new Date();
       case METHOD -> date = newDate();
       case OBJECT -> date = factory.newDate();
+      default -> date = new Date();
     }
   }
 
