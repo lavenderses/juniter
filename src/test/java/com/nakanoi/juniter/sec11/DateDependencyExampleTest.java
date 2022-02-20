@@ -14,7 +14,7 @@ public class DateDependencyExampleTest {
     // Do with method
     final MethodType type = MethodType.METHOD;
     // Do with object
-    //final MethodType type = MethodType.OBJECT;
+    // final MethodType type = MethodType.OBJECT;
 
     switch (type) {
       case METHOD -> sut =
