@@ -8,11 +8,13 @@ import org.junit.jupiter.api.Test;
 
 /** Shop info test tests for assertAll. */
 public class ShopInfoTest {
+  ShopInfo instance;
+
   @Nested
   class InstantiateTest {
     @Test
     void testDefaultConstructor() throws Exception {
-      ShopInfo instance = new ShopInfo();
+      instance = new ShopInfo();
 
       assertAll(
           () -> {

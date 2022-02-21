@@ -2,6 +2,7 @@ package com.nakanoi.juniter.sec6;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.io.InputStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Nested;
@@ -10,9 +11,10 @@ import org.yaml.snakeyaml.Yaml;
 
 /** Nested tests with @BeforeEach. */
 public class ItemStockTest {
+  ItemStock sut;
+
   @Nested
   class InitialStateTest {
-    ItemStock sut;
     String itemName = "itemA";
 
     @BeforeEach
@@ -38,7 +40,6 @@ public class ItemStockTest {
 
   @Nested
   class WhenHaveOneItemTest {
-    ItemStock sut;
     String existingItemName = "itemA";
     int existingItemNumber = 1;
 
@@ -66,7 +67,6 @@ public class ItemStockTest {
 
   @Nested
   class WhenHaveTwoItemsTest {
-    ItemStock sut;
     String existingItemNameA = "itemA";
     String existingItemNameB = "itemB";
     int existingItemNumberA = 1;
@@ -101,7 +101,6 @@ public class ItemStockTest {
   @Nested
   @Disabled
   class WhenHaveTwoItemsFromYamlTest {
-    ItemStock sut;
     String existingItemAName = "itemA";
     String existingItemBName = "itemB";
     String yamlFilePath = "two_items.yaml";
@@ -110,8 +109,10 @@ public class ItemStockTest {
 
     @BeforeEach
     void setUpWithYaml() throws Exception {
-      Yaml yaml = new Yaml();
-      sut = yaml.load(getClass().getResourceAsStream(yamlFilePath));
+      try (InputStream yamlFile = getClass().getResourceAsStream(yamlFilePath)) {
+        Yaml yaml = new Yaml();
+        sut = yaml.load(yamlFile);
+      }
     }
 
     @Test

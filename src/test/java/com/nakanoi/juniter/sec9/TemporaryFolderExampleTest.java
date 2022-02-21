@@ -40,7 +40,7 @@ public class TemporaryFolderExampleTest {
    * @throws IOException Exception for IO.
    */
   static void mkDefaultFiles(Path folder) throws Exception {
-    Path firstCreateFile = Files.createFile(folder.resolve("UnitTest"));
-    Path secondCreateFile = Files.createFile(folder.resolve("readme.txt"));
+    Files.createFile(folder.resolve("UnitTest"));
+    Files.createFile(folder.resolve("readme.txt"));
   }
 }

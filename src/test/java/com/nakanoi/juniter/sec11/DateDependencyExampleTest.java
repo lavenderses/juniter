@@ -31,6 +31,7 @@ public class DateDependencyExampleTest {
               return current;
             }
           };
+      default -> sut = new DateDependencyExample();
     }
     sut.doSomething(type);
     assertThat(sut.date).isEqualTo(current);
