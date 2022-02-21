@@ -10,7 +10,7 @@ public class DateDependencyExample {
   /**
    * Return date.
    *
-   * @param type Method type to execute.
+   * @param type Method's type to execute.
    */
   public void doSomething(MethodType type) {
     switch (type) {
@@ -22,5 +22,9 @@ public class DateDependencyExample {
 
   public Date newDate() {
     return new Date();
+  }
+
+  public String getDate() {
+    return date.toString();
   }
 }
