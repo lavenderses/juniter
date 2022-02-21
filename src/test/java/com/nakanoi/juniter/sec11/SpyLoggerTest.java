@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 /** Test for spy logger. */
 public class SpyLoggerTest {
   @Test
-  void testSpyLogger() {
+  void testSpyLogger() throws Exception {
     SpyExample sut = new SpyExample();
     SpyLogger spy = new SpyLogger(sut.logger);
     sut.logger = spy;

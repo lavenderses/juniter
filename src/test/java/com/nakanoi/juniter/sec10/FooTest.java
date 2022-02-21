@@ -10,14 +10,14 @@ import org.junit.jupiter.api.TestInfo;
 public class FooTest {
   @Test
   @Tag("slow-test")
-  void slowTest(TestInfo testInfo) {
+  void slowTest(TestInfo testInfo) throws Exception {
     assertThat(testInfo.getTags().contains("slow-test")).isTrue();
     assertThat(testInfo.getTags().contains("fast-test")).isFalse();
   }
 
   @Test
   @Tag("fast-test")
-  void fastTest(TestInfo testInfo) {
+  void fastTest(TestInfo testInfo) throws Exception {
     assertThat(testInfo.getTags().contains("slow-test")).isFalse();
     assertThat(testInfo.getTags().contains("fast-test")).isTrue();
   }

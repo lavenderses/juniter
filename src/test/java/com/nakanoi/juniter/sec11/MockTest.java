@@ -39,7 +39,7 @@ public class MockTest {
   }
 
   @Test
-  void testMockWithPartialMock() {
+  void testMockWithPartialMock() throws Exception {
     List<Integer> list = new ArrayList<>();
     List<Integer> spy = spy(list);
     when(spy.size()).thenReturn(100);
@@ -50,7 +50,7 @@ public class MockTest {
   }
 
   @Test
-  void testMockWithSpy() {
+  void testMockWithSpy() throws Exception {
     List<String> list = new ArrayList<>();
     List<String> spy = spy(list);
     doReturn("Mockito").when(spy).get(1);

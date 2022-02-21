@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 /** Test Mock with DateDependencyExample. */
 public class DateDependencyExampleTest {
   @Test
-  void testDoSomethingSetsDateCurrentDate() {
+  void testDoSomethingSetsDateCurrentDate() throws Exception {
     final Date current = new Date();
     DateDependencyExample sut = new DateDependencyExample();
     // Do with method

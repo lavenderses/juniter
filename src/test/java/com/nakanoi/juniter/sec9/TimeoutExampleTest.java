@@ -15,7 +15,7 @@ public class TimeoutExampleTest {
    */
   @Test
   @Timeout(2)
-  void testTimeoutWIthAnnotation() throws Exception {
+  void testTimeoutWithAnnotation() throws Exception {
     Thread.sleep(1000);
   }
 

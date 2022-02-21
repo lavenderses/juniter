@@ -12,12 +12,12 @@ public class ClassRuleExampleTest {
       ExternalResourceExampleExtension.builder().build();
 
   @Test
-  void test01() {
+  void test01() throws Exception {
     assertThat(externalServer.getServer().getStatus()).isEqualTo(true);
   }
 
   @Test
-  void test02() {
+  void test02() throws Exception {
     assertThat(externalServer.getServer().get("foo")).isEqualTo("foo");
   }
 }

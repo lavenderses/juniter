@@ -21,14 +21,10 @@ public class CalculatorDataPointsTest {
    */
   @ParameterizedTest
   @MethodSource("myArgumentsProvider")
-  void add(int x, int y, int expected) {
+  void add(int x, int y, int expected) throws Exception {
     int actual = x + y;
 
     assertThat(actual).isEqualTo(expected);
-  }
-
-  static Stream<Arguments> myArgumentsProvider() {
-    return Stream.of(arguments(1, 2, 3), arguments(4, 5, 9));
   }
 
   /**
@@ -38,10 +34,14 @@ public class CalculatorDataPointsTest {
    */
   @ParameterizedTest(name = "Test of {index}: Is {0} + {1} => {2}?")
   @CsvSource({"1, 2, 3", "4, 5, 9"})
-  void add(ArgumentsAccessor argsAccessor) {
+  void add(ArgumentsAccessor argsAccessor) throws Exception {
     int actual = argsAccessor.get(0, Integer.class) + argsAccessor.get(1, Integer.class);
     int expected = argsAccessor.getInteger(2);
 
     assertThat(actual).isEqualTo(expected);
+  }
+
+  static Stream<Arguments> myArgumentsProvider() {
+    return Stream.of(arguments(1, 2, 3), arguments(4, 5, 9));
   }
 }

@@ -16,12 +16,12 @@ public class ItemStockTest {
     String itemName = "itemA";
 
     @BeforeEach
-    void createItemStock() {
+    void createItemStock() throws Exception {
       sut = new ItemStock();
     }
 
     @Test
-    void testSizeGet0() {
+    void testSizeGet0() throws Exception {
       int actual = sut.size(itemName);
       int expected = 0;
 
@@ -29,7 +29,7 @@ public class ItemStockTest {
     }
 
     @Test
-    void testContainsGetFalse() {
+    void testContainsGetFalse() throws Exception {
       boolean actual = sut.contains(itemName);
 
       assertThat(actual).isFalse();
@@ -43,13 +43,13 @@ public class ItemStockTest {
     int existingItemNumber = 1;
 
     @BeforeEach
-    void createItemStockAndAddOneItem() {
+    void createItemStockAndAddOneItem() throws Exception {
       sut = new ItemStock();
       sut.add(existingItemName, existingItemNumber);
     }
 
     @Test
-    void sizeGet1WithExistingItemName() {
+    void sizeGet1WithExistingItemName() throws Exception {
       int actual = sut.size(existingItemName);
       int expected = existingItemNumber;
 
@@ -57,7 +57,7 @@ public class ItemStockTest {
     }
 
     @Test
-    void containsGetTrueWithExistingItemName() {
+    void containsGetTrueWithExistingItemName() throws Exception {
       boolean actual = sut.contains(existingItemName);
 
       assertThat(actual).isTrue();
@@ -67,31 +67,31 @@ public class ItemStockTest {
   @Nested
   class WhenHaveTwoItemsTest {
     ItemStock sut;
-    String existingItemAName = "itemA";
-    String existingItemBName = "itemB";
-    int existingItemANumber = 1;
-    int existingItemBNumber = 2;
+    String existingItemNameA = "itemA";
+    String existingItemNameB = "itemB";
+    int existingItemNumberA = 1;
+    int existingItemNumberB = 2;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws Exception {
 
       sut = new ItemStock();
-      sut.add(existingItemAName, existingItemANumber);
-      sut.add(existingItemBName, existingItemBNumber);
+      sut.add(existingItemNameA, existingItemNumberA);
+      sut.add(existingItemNameB, existingItemNumberB);
     }
 
     @Test
-    void testSizeGet1WithItemNameA() {
-      int actual = sut.size(existingItemAName);
-      int expected = existingItemANumber;
+    void testSizeGet1WithItemNameA() throws Exception {
+      int actual = sut.size(existingItemNameA);
+      int expected = existingItemNumberA;
 
       assertThat(actual).isEqualTo(expected);
     }
 
     @Test
-    void testSizeGet2WithItemNameB() {
-      int actual = sut.size(existingItemBName);
-      int expected = existingItemBNumber;
+    void testSizeGet2WithItemNameB() throws Exception {
+      int actual = sut.size(existingItemNameB);
+      int expected = existingItemNumberB;
 
       assertThat(actual).isEqualTo(expected);
     }
@@ -109,13 +109,13 @@ public class ItemStockTest {
     int existingItemBNumber = 2;
 
     @BeforeEach
-    void setUpWithYaml() {
+    void setUpWithYaml() throws Exception {
       Yaml yaml = new Yaml();
       sut = yaml.load(getClass().getResourceAsStream(yamlFilePath));
     }
 
     @Test
-    void testSizeGet1WithItemNameA() {
+    void testSizeGet1WithItemNameA() throws Exception {
       int actual = sut.size(existingItemAName);
       int expected = existingItemANumber;
 
@@ -123,7 +123,7 @@ public class ItemStockTest {
     }
 
     @Test
-    void testSizeGet2WithItemNameB() {
+    void testSizeGet2WithItemNameB() throws Exception {
       int actual = sut.size(existingItemBName);
       int expected = existingItemBNumber;
 

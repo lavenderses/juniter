@@ -10,19 +10,19 @@ import org.junit.jupiter.api.condition.OS;
 public class OsDependentTest {
   @Test
   @EnabledOnOs(OS.WINDOWS)
-  void onlyWindows() {
+  void onlyWindows() throws Exception {
     assertThat(System.getProperties().get("os.name")).isEqualTo("Windows");
   }
 
   @Test
   @EnabledOnOs(OS.MAC)
-  void onlyMac() {
+  void onlyMac() throws Exception {
     assertThat(System.getProperties().get("os.name")).isEqualTo("Mac");
   }
 
   @Test
   @EnabledOnOs(OS.LINUX)
-  void onlyLinux() {
+  void onlyLinux() throws Exception {
     assertThat(System.getProperties().get("os.name")).isEqualTo("Linux");
   }
 }
