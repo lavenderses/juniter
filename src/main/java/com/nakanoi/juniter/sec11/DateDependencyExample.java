@@ -14,9 +14,15 @@ public class DateDependencyExample {
    */
   public void doSomething(MethodType type) {
     switch (type) {
-      case METHOD -> date = newDate();
-      case OBJECT -> date = factory.newDate();
-      default -> date = new Date();
+      case METHOD:
+        date = newDate();
+        break;
+      case OBJECT:
+        date = factory.newDate();
+        break;
+      default:
+        date = new Date();
+        break;
     }
   }
 
