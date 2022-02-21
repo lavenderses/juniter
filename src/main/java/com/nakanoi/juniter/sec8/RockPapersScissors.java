@@ -13,15 +13,20 @@ public class RockPapersScissors {
     if (h1 == h2) {
       return Result.DRAW;
     }
+    Result result;
     switch (h1) {
       case ROCK:
-        return h2 == Hand.SCISSORS ? Result.WIN : Result.LOSE;
+        result = h2 == Hand.SCISSORS ? Result.WIN : Result.LOSE;
+        break;
       case PAPERS:
-        return h2 == Hand.ROCK ? Result.WIN : Result.LOSE;
+        result = h2 == Hand.ROCK ? Result.WIN : Result.LOSE;
+        break;
       case SCISSORS:
-        return h2 == Hand.PAPERS ? Result.WIN : Result.LOSE;
+        result = h2 == Hand.PAPERS ? Result.WIN : Result.LOSE;
+        break;
+      default:
+        result = Result.DRAW;
     }
-    ;
-    return null;
+    return result;
   }
 }

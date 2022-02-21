@@ -22,7 +22,6 @@ public class DateDependencyExample {
         break;
       default:
         date = new Date();
-        break;
     }
   }
 
