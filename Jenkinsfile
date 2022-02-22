@@ -14,8 +14,8 @@ pipeline {
     }
     stage('Static Code Analysis') {
       steps {
-        checkstyle pattern: 'build/checkstyle/*.xml'
-        spotbugs pattern: 'build/spotbugs/*.xml'
+        checkStyle pattern: 'build/checkstyle/*.xml'
+        spotBugs pattern: 'build/spotbugs/*.xml'
       }
     }
   }
