@@ -11,6 +11,7 @@ plugins {
 group 'com.naknaoi.juniter'
 version '0.1.0'
 
+
 repositories {
     mavenCentral()
 }
@@ -32,7 +33,11 @@ dependencies {
 
 test {
     useJUnitPlatform {
-        excludeTags 'slow-test'
+        if (BUILT_BY == "Jenkins") {
+            excludeTags 'slow-test', 'DB'
+        } else {
+            excludeTags 'DB'
+        }
     }
     finalizedBy jacocoTestReport
 }
