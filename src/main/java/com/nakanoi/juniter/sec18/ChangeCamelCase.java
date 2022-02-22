@@ -3,6 +3,7 @@ package com.nakanoi.juniter.sec18;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /** Change string to snake case. */
 public class ChangeCamelCase {
@@ -15,7 +16,7 @@ public class ChangeCamelCase {
     capitalizeds.addAll(
         strings.subList(1, strings.size()).stream()
             .map(string -> capitalizeFirstCharacter(string, false))
-            .toList());
+            .collect(Collectors.toList()));
 
     return s.isEmpty() ? s : String.join("", capitalizeds);
   }
