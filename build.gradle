@@ -10,7 +10,8 @@ plugins {
 
 group 'com.naknaoi.juniter'
 version '0.1.0'
-
+sourceCompatibility = '17'
+targetCompatibility = '17'
 
 repositories {
     mavenCentral()
