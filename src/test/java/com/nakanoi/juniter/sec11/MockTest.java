@@ -3,7 +3,6 @@ package com.nakanoi.juniter.sec11;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.anyInt;
-import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
@@ -24,22 +23,23 @@ public class MockTest {
     assertThat(mock.get(0)).isNull();
 
     when(mock.get(0)).thenReturn("Hello");
-    when(mock.get(100)).thenThrow(IllegalArgumentException.class);
     doThrow(new RuntimeException()).when(mock).clear();
 
     assertThat(mock.get(0)).isEqualTo("Hello");
-    assertThrows(IllegalArgumentException.class, () -> mock.get(100));
     assertThrows(RuntimeException.class, mock::clear);
 
     when(mock.get(anyInt())).thenReturn("String");
     assertThat(mock.get(100)).isEqualTo("String");
 
-    verify(mock, times(2)).get(0);
-    verify(mock, never()).get(50);
+    mock.add("Hello");
+    mock.add("Hello");
+
+    verify(mock, times(2)).add("Hello");
+    verify(mock, never()).add("String");
   }
 
   @Test
-  void testMockWithPartialMock() {
+  void testMockWithPartialMock() throws Exception {
     List<Integer> list = new ArrayList<>();
     List<Integer> spy = spy(list);
     when(spy.size()).thenReturn(100);
@@ -50,10 +50,9 @@ public class MockTest {
   }
 
   @Test
-  void testMockWithSpy() {
+  void testMockWithSpy() throws Exception {
     List<String> list = new ArrayList<>();
     List<String> spy = spy(list);
-    doReturn("Mockito").when(spy).get(1);
 
     spy.add("Hello");
     spy.add("World");
@@ -62,6 +61,5 @@ public class MockTest {
     verify(spy, times(2)).add("Hello");
     verify(spy).add("World");
     assertThat(spy.get(0)).isEqualTo("Hello");
-    assertThat(spy.get(1)).isEqualTo(("Mockito"));
   }
 }

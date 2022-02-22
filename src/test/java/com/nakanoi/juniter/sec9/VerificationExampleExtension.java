@@ -21,7 +21,7 @@ public class VerificationExampleExtension implements BeforeAllCallback, AfterAll
     assertThat(verifierExample.getValue()).isZero();
   }
 
-  public VerifierExample getVerifierExample() {
-    return verifierExample;
+  public VerifierExample getVerifierExample() throws CloneNotSupportedException {
+    return verifierExample.clone();
   }
 }

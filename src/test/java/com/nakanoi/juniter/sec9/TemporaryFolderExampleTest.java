@@ -20,7 +20,7 @@ public class TemporaryFolderExampleTest {
    * @throws IOException Exception for IO.
    */
   @Test
-  void mkDefaultFilesCreates2Files() throws IOException {
+  void mkDefaultFilesCreates2Files() throws Exception {
     assertThat(Files.isDirectory(tempDir)).isTrue();
     TemporaryFolderExampleTest.mkDefaultFiles(tempDir);
     File[] files = tempDir.toFile().listFiles();
@@ -39,8 +39,8 @@ public class TemporaryFolderExampleTest {
    * @param folder Folder you want to create file in.
    * @throws IOException Exception for IO.
    */
-  static void mkDefaultFiles(Path folder) throws IOException {
-    Path firstCreateFile = Files.createFile(folder.resolve("UnitTest"));
-    Path secondCreateFile = Files.createFile(folder.resolve("readme.txt"));
+  static void mkDefaultFiles(Path folder) throws Exception {
+    Files.createFile(folder.resolve("UnitTest"));
+    Files.createFile(folder.resolve("readme.txt"));
   }
 }

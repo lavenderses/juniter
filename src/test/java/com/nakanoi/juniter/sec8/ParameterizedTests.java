@@ -14,7 +14,7 @@ public class ParameterizedTests {
    */
   @ParameterizedTest
   @ValueSource(ints = {3, 4})
-  void testMethodWithArg(int param) {
+  void testMethodWithArg(int param) throws Exception {
     assertThat(param).isGreaterThan(2);
   }
 
@@ -25,7 +25,7 @@ public class ParameterizedTests {
    */
   @ParameterizedTest
   @ValueSource(strings = {"foo", "bar"})
-  void testMethodWithArg(String param) {
+  void testMethodWithArg(String param) throws Exception {
     assertThat(param.length()).isEqualTo(3);
   }
 }

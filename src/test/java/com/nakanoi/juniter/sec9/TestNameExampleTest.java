@@ -9,13 +9,13 @@ import org.junit.jupiter.api.TestInfo;
 /** Test for TestName. */
 public class TestNameExampleTest {
   @Test
-  void sampleTestName(TestInfo testInfo) {
+  void sampleTestName(TestInfo testInfo) throws Exception {
     assertThat(testInfo.getDisplayName()).isEqualTo("sampleTestName(TestInfo)");
   }
 
   @Test
   @DisplayName("This is a test with DisplayName.")
-  void sampleTestNameWithDisplayName(TestInfo testInfo) {
+  void sampleTestNameWithDisplayName(TestInfo testInfo) throws Exception {
     assertThat(testInfo.getDisplayName()).isEqualTo("This is a test with DisplayName.");
   }
 }

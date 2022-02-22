@@ -10,17 +10,26 @@ public class DateDependencyExample {
   /**
    * Return date.
    *
-   * @param type Method type to execute.
+   * @param type Method's type to execute.
    */
   public void doSomething(MethodType type) {
     switch (type) {
-      case METHOD -> date = newDate();
-      case OBJECT -> date = factory.newDate();
-      default -> date = new Date();
+      case METHOD:
+        date = newDate();
+        break;
+      case OBJECT:
+        date = factory.newDate();
+        break;
+      default:
+        date = new Date();
     }
   }
 
   public Date newDate() {
     return new Date();
+  }
+
+  public String getDate() {
+    return date.toString();
   }
 }

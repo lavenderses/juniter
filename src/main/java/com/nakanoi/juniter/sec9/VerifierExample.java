@@ -1,8 +1,16 @@
 package com.nakanoi.juniter.sec9;
 
 /** Simple class to test VerificationExampleTest. */
-public class VerifierExample {
+public class VerifierExample implements Cloneable {
   private int value = 0;
+
+  @Override
+  public VerifierExample clone() throws CloneNotSupportedException {
+    VerifierExample clone = (VerifierExample) super.clone();
+    clone.value = this.value;
+
+    return clone;
+  }
 
   public void set(int x) {
     value = x;

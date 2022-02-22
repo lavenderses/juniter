@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 /** Calc test. */
 public class CalcTest {
   @Test
-  public void testMultiplyWith3And4() {
+  public void testMultiplyWith3And4() throws Exception {
     Calc calc = new Calc();
     int expected = 12;
     int actual = calc.multiply(3, 4);
@@ -17,7 +17,7 @@ public class CalcTest {
   }
 
   @Test
-  public void testMultiplyWith5And7() {
+  public void testMultiplyWith5And7() throws Exception {
     Calc calc = new Calc();
     int expected = 35;
     int actual = calc.multiply(5, 7);
@@ -26,7 +26,7 @@ public class CalcTest {
   }
 
   @Test
-  public void testDivideWith3And2() {
+  public void testDivideWith3And2() throws Exception {
     Calc calc = new Calc();
     double expected = 1.5;
     double actual = calc.divide(3, 2);
@@ -35,7 +35,7 @@ public class CalcTest {
   }
 
   @Test
-  public void testDivideWith0DivideThrowsIllegalArgumentException() {
+  public void testDivideWith0DivideThrowsIllegalArgumentException() throws Exception {
     Calc calc = new Calc();
 
     assertThatThrownBy(() -> calc.divide(3, 0)).isInstanceOf(IllegalArgumentException.class);

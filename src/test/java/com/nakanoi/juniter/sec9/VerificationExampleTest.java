@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
-/** Test verification */
+/** Test verification. */
 public class VerificationExampleTest {
   @RegisterExtension
   static VerificationExampleExtension verificationExampleExtension =

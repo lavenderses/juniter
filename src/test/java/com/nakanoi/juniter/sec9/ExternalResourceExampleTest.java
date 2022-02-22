@@ -13,7 +13,7 @@ public class ExternalResourceExampleTest {
 
   /** Test server returns string which is equal to the request path. */
   @Test
-  void testServerConnection() {
+  void testServerConnection() throws Exception {
     Server server = serverResource.getServer();
     String path = "hello";
     // Simulated get request to the server.

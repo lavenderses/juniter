@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 /** Test RandomNumberGeneratorImplementation with mock. */
 public class RandomNumberGeneratorImplementationWithMockTest {
   @Test
-  void testGetAWithIndex0() {
+  void testGetAWithIndex0() throws Exception {
     List<String> options = new ArrayList<>();
     options.add("A");
     options.add("B");
