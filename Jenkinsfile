@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  environment {
+    ORG_GRADLE_PROJECT_BUILT_BY='Jenkins'
+  }
   stages {
     stage('Build') {
       steps {
