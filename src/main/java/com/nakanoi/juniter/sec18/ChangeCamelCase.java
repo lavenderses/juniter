@@ -7,7 +7,7 @@ import java.util.List;
 /** Change string to snake case. */
 public class ChangeCamelCase {
   public String change(String s) {
-    String splitRegex = "(-|_|\s)+";
+    String splitRegex = "(-|_|\\s)+";
     List<String> strings = Arrays.asList(s.split(splitRegex));
     List<String> capitalizeds = new ArrayList<>();
 
