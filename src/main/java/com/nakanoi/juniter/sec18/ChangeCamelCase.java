@@ -11,14 +11,22 @@ public class ChangeCamelCase {
     List<String> strings = Arrays.asList(s.split(splitRegex));
     List<String> capitalizeds = new ArrayList<>();
 
-    capitalizeds.add(strings.get(0));
+    capitalizeds.add(capitalizeFirstCharacter(strings.get(0), true));
     capitalizeds.addAll(
-        strings.subList(1, strings.size()).stream().map(this::capitalizeFirstCharacter).toList());
+        strings.subList(1, strings.size()).stream()
+            .map(string -> capitalizeFirstCharacter(string, false))
+            .toList());
 
     return s.isEmpty() ? s : String.join("", capitalizeds);
   }
 
-  String capitalizeFirstCharacter(String string) {
-    return string.isEmpty() ? string : string.substring(0, 1).toUpperCase() + string.substring(1);
+  String capitalizeFirstCharacter(String string, boolean isFirst) {
+    if (isFirst) {
+      return string.isEmpty() ? string : string.toLowerCase();
+    } else {
+      return string.isEmpty()
+          ? string
+          : string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
+    }
   }
 }

@@ -60,9 +60,18 @@ public class ChangeCamelCaseTest {
   }
 
   @Test
+  void testChangeWithLatterCapitalizedCharacterGetCamelCase() throws Exception {
+    String change = "tHiS iS it";
+    String actual = sut.change(change);
+    String expected = "thisIsIt";
+
+    assertThat(actual).isEqualTo(expected);
+  }
+
+  @Test
   void testCapitalizeFirstCharacterWithhelloGetsHello() throws Exception {
     String change = "hello";
-    String actual = sut.capitalizeFirstCharacter(change);
+    String actual = sut.capitalizeFirstCharacter(change, false);
     String expected = "Hello";
 
     assertThat(actual).isEqualTo(expected);
@@ -71,7 +80,7 @@ public class ChangeCamelCaseTest {
   @Test
   void testCapitalizeFirstCharacterWithaGetsA() throws Exception {
     String change = "a";
-    String actual = sut.capitalizeFirstCharacter(change);
+    String actual = sut.capitalizeFirstCharacter(change, false);
     String expected = "A";
 
     assertThat(actual).isEqualTo(expected);
@@ -80,8 +89,17 @@ public class ChangeCamelCaseTest {
   @Test
   void testCapitalizeFirstCharacterWithEmptyStringGetsEmptyString() throws Exception {
     String change = "";
-    String actual = sut.capitalizeFirstCharacter(change);
+    String actual = sut.capitalizeFirstCharacter(change, false);
     String expected = "";
+
+    assertThat(actual).isEqualTo(expected);
+  }
+
+  @Test
+  void testCapitalizeFirstCharacterWithLatterCapitalizedCharacter() throws Exception {
+    String change = "hElLo";
+    String actual = sut.capitalizeFirstCharacter(change, false);
+    String expected = "Hello";
 
     assertThat(actual).isEqualTo(expected);
   }
