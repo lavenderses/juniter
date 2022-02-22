@@ -5,10 +5,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
 /** Test for UserDao with database. */
+@Tag("DB")
 public class UserDaoTest {
   private static final String baseDir = "h2";
   private static final String dbName = "db";
