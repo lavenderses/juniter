@@ -12,9 +12,7 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 public class UserDaoTest {
   private static final String baseDir = "h2";
   private static final String dbName = "db";
-  private static final String schemaName = "uu";
-  private static final String tableName = "\"users\"";
-  private static final String tableStructure = "(id INT AUTO_INCREMENT, name VARCHAR(255))";
+  private static final String schemaName = "unit";
   private final String url =
       String.format(
           "jdbc:h2:%s/./%s;SCHEMA=%s;DATABASE_TO_UPPER=false",
@@ -23,8 +21,7 @@ public class UserDaoTest {
   @RegisterExtension
   static H2DatabaseServer server = new H2DatabaseServer(baseDir, dbName, schemaName);
 
-  @RegisterExtension
-  DbResource dbResource = new DbResource(url, tableName, tableStructure, schemaName);
+  @RegisterExtension DbResource dbResource = new DbResource(url, schemaName);
 
   @Nested
   class WhenTableHasNoRecordsTest {
@@ -43,11 +40,6 @@ public class UserDaoTest {
 
       assertThat(actual).isNotNull();
       assertThat(actual.size()).isEqualTo(0);
-    }
-
-    @Test
-    void testInsert1Record() throws Exception {
-      sut.insert("User name");
     }
   }
 
@@ -73,8 +65,5 @@ public class UserDaoTest {
       assertThat(actual.get(0)).isEqualTo("Ichiro");
       assertThat(actual.get(1)).isEqualTo("Jiro");
     }
-
-    @Test
-    void testInsert1Record() throws Exception {}
   }
 }
