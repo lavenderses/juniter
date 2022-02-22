@@ -32,7 +32,7 @@ dependencies {
 
 test {
     useJUnitPlatform {
-        excludeTags 'slow-test' 'DB'
+        excludeTags 'slow-test', 'DB'
     }
     finalizedBy jacocoTestReport
 }
