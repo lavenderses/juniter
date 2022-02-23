@@ -101,11 +101,11 @@ public class ItemStockTest {
   @Nested
   @Disabled
   class WhenHaveTwoItemsFromYamlTest {
-    String existingItemAName = "itemA";
-    String existingItemBName = "itemB";
+    String existingItemNameA = "itemA";
+    String existingItemNameB = "itemB";
     String yamlFilePath = "two_items.yaml";
-    int existingItemANumber = 1;
-    int existingItemBNumber = 2;
+    int existingItemNumberA = 1;
+    int existingItemNumberB = 2;
 
     @BeforeEach
     void setUpWithYaml() throws Exception {
@@ -117,16 +117,16 @@ public class ItemStockTest {
 
     @Test
     void testSizeGet1WithItemNameA() throws Exception {
-      int actual = sut.size(existingItemAName);
-      int expected = existingItemANumber;
+      int actual = sut.size(existingItemNameA);
+      int expected = existingItemNumberA;
 
       assertThat(actual).isEqualTo(expected);
     }
 
     @Test
     void testSizeGet2WithItemNameB() throws Exception {
-      int actual = sut.size(existingItemBName);
-      int expected = existingItemBNumber;
+      int actual = sut.size(existingItemNameB);
+      int expected = existingItemNumberB;
 
       assertThat(actual).isEqualTo(expected);
     }
