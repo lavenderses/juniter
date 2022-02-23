@@ -10,14 +10,14 @@ import org.junit.jupiter.params.provider.ValueSource;
 public class NumberUtilsTest {
   @ParameterizedTest
   @ValueSource(ints = {12, 0, -4})
-  void testIsEvenGetsTrue(int number) {
+  void testIsEvenGetsTrue(int number) throws Exception {
     boolean actual = NumberUtil.isEven(number);
     assertTrue(actual);
   }
 
   @ParameterizedTest
   @ValueSource(ints = {13, 1, -1})
-  void testIsEvenGetsFalse(int number) {
+  void testIsEvenGetsFalse(int number) throws Exception {
     boolean actual = NumberUtil.isEven(number);
     assertFalse(actual);
   }

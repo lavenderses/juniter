@@ -16,7 +16,7 @@ public class ChangeCamelCaseParameterizedTest {
     "com_nakanoi_test, comNakanoiTest",
     "tHiS iS it, thisIsIt"
   })
-  void testChangeCamelWithParams(String change, String expected) {
+  void testChangeCamelWithParams(String change, String expected) throws Exception {
     change = change == null ? "" : change;
     expected = expected == null ? "" : expected;
     ChangeCamelCase sut = new ChangeCamelCase();
@@ -27,7 +27,7 @@ public class ChangeCamelCaseParameterizedTest {
 
   @ParameterizedTest
   @CsvSource({"hello, Hello", "a, A", ", ", "hElLo, Hello"})
-  void testCapitalizeFirstCharacterWithParams(String change, String expected) {
+  void testCapitalizeFirstCharacterWithParams(String change, String expected) throws Exception {
     change = change == null ? "" : change;
     expected = expected == null ? "" : expected;
     ChangeCamelCase sut = new ChangeCamelCase();
