@@ -17,12 +17,8 @@ public class ConsumptionTaxTest {
   }
 
   @ParameterizedTest
-  @CsvSource({
-          "100, 110",
-          "844, 928",
-          "8464863, 9311349"
-  })
-  void testCalculate(int yen, int expected) {
+  @CsvSource({"100, 110", "844, 928", "8464863, 9311349"})
+  void testCalculate(int yen, int expected) throws Exception {
     int actual = sut.calculate(yen);
 
     assertThat(actual).isEqualTo(expected);

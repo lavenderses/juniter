@@ -12,6 +12,15 @@ import java.util.stream.Collectors;
 
 /** Simple loader for employee. */
 public class EmployeeLoader {
+  /**
+   * Simple constructor for employee loader.
+   *
+   * @param filePath File path pf employees.
+   * @return List of employee instances.
+   * @throws FileNotFoundException Employee file doesn't exist.
+   * @throws IOException Exception for IO.
+   * @throws EmployeeLoaderException Exception for employee object.
+   */
   public static ArrayList<Employee> load(String filePath)
       throws FileNotFoundException, IOException, EmployeeLoaderException {
     ArrayList<Employee> employees = new ArrayList<>();

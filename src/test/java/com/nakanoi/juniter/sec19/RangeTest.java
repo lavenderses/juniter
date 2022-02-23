@@ -10,9 +10,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 public class RangeTest {
   @ParameterizedTest
   @CsvSource({
-          "-1.01, 2.11, 1.9",
-          "-1.01, 2.11, 2.11",
-          "-1.01, 2.11, -1.01",
+    "-1.01, 2.11, 1.9",
+    "-1.01, 2.11, 2.11",
+    "-1.01, 2.11, -1.01",
   })
   void testContainsWithInOfRange(double min, double max, double number) {
     Range sut = new Range(min, max);
@@ -23,8 +23,8 @@ public class RangeTest {
 
   @ParameterizedTest
   @CsvSource({
-          "-1.01, 2.11, 2.1101",
-          "-1.01, 2.11, -1.01001",
+    "-1.01, 2.11, 2.1101",
+    "-1.01, 2.11, -1.01001",
   })
   void testContainsWithOutOfRange(double min, double max, double number) {
     Range sut = new Range(min, max);
