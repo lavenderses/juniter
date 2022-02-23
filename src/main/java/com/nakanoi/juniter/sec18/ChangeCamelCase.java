@@ -7,6 +7,12 @@ import java.util.stream.Collectors;
 
 /** Change string to snake case. */
 public class ChangeCamelCase {
+  /**
+   * Change string to camel case.
+   *
+   * @param s String to be converted to camel case.
+   * @return String camel cased of s.
+   */
   public String change(String s) {
     String splitRegex = "(-|_|\\s)+";
     List<String> strings = Arrays.asList(s.split(splitRegex));
