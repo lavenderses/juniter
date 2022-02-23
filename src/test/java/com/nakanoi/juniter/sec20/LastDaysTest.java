@@ -2,8 +2,6 @@ package com.nakanoi.juniter.sec20;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 import java.util.Calendar;
 import java.util.stream.Stream;
@@ -24,11 +22,10 @@ public class LastDaysTest {
 
   static Stream<Arguments> sourceDateAndExpectedDays() {
     return Stream.of(
-            arguments(getCalender(2022, 1, 13), 18),
-            arguments(getCalender(2020, 2, 23), 6),
-            arguments(getCalender(2022, 2, 23), 5),
-            arguments(getCalender(2022, 12, 31), 0)
-    );
+        arguments(getCalender(2022, 1, 13), 18),
+        arguments(getCalender(2020, 2, 23), 6),
+        arguments(getCalender(2022, 2, 23), 5),
+        arguments(getCalender(2022, 12, 31), 0));
   }
 
   private static Calendar getCalender(int year, int month, int day) {

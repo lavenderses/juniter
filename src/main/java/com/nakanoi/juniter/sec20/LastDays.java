@@ -4,10 +4,10 @@ import java.util.Calendar;
 
 /** Simple calculator. */
 public class LastDays {
-  Calendar calendar;
+  private final Calendar calendar;
 
   public LastDays(Calendar calendar) {
-    this.calendar = calendar;
+    this.calendar = (Calendar) calendar.clone();
   }
 
   public int calculate() {
