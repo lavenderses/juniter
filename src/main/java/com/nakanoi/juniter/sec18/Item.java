@@ -20,7 +20,8 @@ public class Item implements Cloneable {
     if (o == null) {
       return false;
     }
-    if (o instanceof Item item) {
+    if (o instanceof Item) {
+      Item item = (Item) o;
       return item.name.equals(this.name);
     }
     return false;
