@@ -1,9 +1,11 @@
 package com.nakanoi.juniter.sec18;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
 /** Test for background task. */
+@Tag("slow-test")
 public class BackgroundTaskTest {
   @Test
   @Timeout(6)
