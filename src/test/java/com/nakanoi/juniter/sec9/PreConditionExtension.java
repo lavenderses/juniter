@@ -11,9 +11,9 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 
 /** Simple extension for precondition check. */
 public class PreConditionExtension implements ExecutionCondition {
-  private final ConditionEvaluationResult ENABLE =
+  private final ConditionEvaluationResult enabled =
       ConditionEvaluationResult.enabled("Tag matches to today.");
-  private final ConditionEvaluationResult DISABLED =
+  private final ConditionEvaluationResult disabled =
       ConditionEvaluationResult.disabled("No tag fot today.");
 
   @Override
@@ -22,6 +22,6 @@ public class PreConditionExtension implements ExecutionCondition {
     String day = dayOfWeek.getDisplayName(TextStyle.FULL, Locale.US);
     Set<String> tags = context.getTags();
 
-    return tags.contains(day) ? ENABLE : DISABLED;
+    return tags.contains(day) ? enabled : disabled;
   }
 }

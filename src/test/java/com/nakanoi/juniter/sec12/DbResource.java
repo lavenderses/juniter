@@ -23,6 +23,12 @@ public class DbResource implements BeforeEachCallback, AfterEachCallback {
   private final String password;
   private final String schemaName;
 
+  /**
+   * Constructor of DbResource with url and schema name.
+   *
+   * @param url DB URL.
+   * @param schemaName Schema name to use.
+   */
   public DbResource(String url, String schemaName) {
     this(
         url,
@@ -31,6 +37,14 @@ public class DbResource implements BeforeEachCallback, AfterEachCallback {
         schemaName);
   }
 
+  /**
+   * DbResource constructor.
+   *
+   * @param url DB URL.
+   * @param username Username to use.
+   * @param password User's password.
+   * @param schemaName Schema name to use.
+   */
   public DbResource(String url, String username, String password, String schemaName) {
     this.url = url;
     this.username = username;
@@ -48,18 +62,30 @@ public class DbResource implements BeforeEachCallback, AfterEachCallback {
     deleteAll();
   }
 
+  /**
+   * Delete all records of users table.
+   *
+   * @throws SQLException Exception for SQL operation.
+   * @throws DatabaseUnitException DbUnit exception.
+   */
   public void deleteAll() throws SQLException, DatabaseUnitException {
-    String deleteALl = "DELETE FROM users WHERE id >= ?";
+    String deleteAll = "DELETE FROM users WHERE id >= ?";
     try (Connection connection = DriverManager.getConnection(url, username, password)) {
       IDatabaseConnection dbConnection = new DatabaseConnection(connection, schemaName);
 
-      try (PreparedStatement statement = dbConnection.getConnection().prepareStatement(deleteALl)) {
+      try (PreparedStatement statement = dbConnection.getConnection().prepareStatement(deleteAll)) {
         statement.setInt(1, 0);
         statement.executeUpdate();
       }
     }
   }
 
+  /**
+   * Insert records from specified xml file.
+   *
+   * @param filePath Xml file path which has records to be inserted to users table.
+   * @throws Exception SQL exception.
+   */
   public void insertFromFile(String filePath) throws Exception {
     try (Connection connection = DriverManager.getConnection(url, username, password)) {
       IDatabaseConnection dbConnection = new DatabaseConnection(connection, schemaName);

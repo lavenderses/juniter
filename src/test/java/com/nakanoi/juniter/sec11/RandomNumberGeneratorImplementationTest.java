@@ -19,7 +19,7 @@ public class RandomNumberGeneratorImplementationTest {
   }
 
   @Test
-  void testChoiceGetAWithIndex0() throws Exception {
+  void testChoiceGetAwithIndex0() throws Exception {
     Randoms sut = new Randoms();
     sut.generator =
         new RandomNumberGenerator() {
@@ -32,7 +32,7 @@ public class RandomNumberGeneratorImplementationTest {
   }
 
   @Test
-  void testChoiceGetBWithIndex0ImplementedWithStub() throws Exception {
+  void testChoiceGetBwithIndex0ImplementedWithStub() throws Exception {
     Randoms sut = new Randoms();
     sut.generator = new RandomNumberGeneratorStub();
     assertThat(sut.choice(options)).isEqualTo("B");
