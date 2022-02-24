@@ -14,6 +14,13 @@ public class IsDate extends BaseMatcher<Date> {
   private final int dd;
   private Object actual;
 
+  /**
+   * Constructor of IsDate class.
+   *
+   * @param yyyy 4 characters of year.
+   * @param mm 2 characters of month.
+   * @param dd 2 characters of day.
+   */
   public IsDate(int yyyy, int mm, int dd) {
     this.yyyy = yyyy;
     this.mm = mm;

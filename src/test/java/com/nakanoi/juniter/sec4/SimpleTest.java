@@ -2,12 +2,10 @@ package com.nakanoi.juniter.sec4;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
@@ -15,7 +13,7 @@ import org.junit.jupiter.api.Test;
 /** Simple test. */
 public class SimpleTest {
   @Test
-  public void testSimpleGet7With3Plus4() {
+  public void testSimpleGet7With3Plus4() throws Exception {
     int actual = 3 + 4;
     int expected = 7;
 
@@ -23,7 +21,7 @@ public class SimpleTest {
   }
 
   @Test
-  public void testSimpleGetListContainsHello() {
+  public void testSimpleGetListContainsHello() throws Exception {
     ArrayList<String> actual = new ArrayList<>();
     actual.add("Hello");
     actual.add("World");
@@ -33,7 +31,7 @@ public class SimpleTest {
   }
 
   @Test
-  public void testCustomMatcherWithInvalidDate() {
+  public void testCustomMatcherWithInvalidDate() throws Exception {
     Date date = new Date();
     Calendar calendar = Calendar.getInstance();
     int dayPlus = 0;

@@ -14,7 +14,7 @@ public class Calc {
   }
 
   /**
-   * Division Method
+   * Division Method.
    *
    * @param x Number to be divided.
    * @param y Number to divide.

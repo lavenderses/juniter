@@ -1,3 +1,6 @@
 .gradle
 .idea
 build
+h2
+bin
+temp
